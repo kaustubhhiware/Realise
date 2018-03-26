@@ -21,7 +21,7 @@ sys.setdefaultencoding('utf8')
 server = Flask('my app')
 server.secret_key = os.environ.get('secret_key', 'secret')
 
-app = dash.Dash('SavitrApp', server=server, url_base_pathname='/', csrf_protect=False)
+app = dash.Dash('RealiseApp', server=server, url_base_pathname='/', csrf_protect=False)
 
 if 'DYNO' in os.environ:
 	app.scripts.append_script({
@@ -55,7 +55,7 @@ for month in df.groupby(df.index.month):
 		dailyList.append(day[1])
 	totalList.append(dailyList)
 
-app.title = 'Savitr - Disaster Mapping using Twitter'
+app.title = 'Realise - Disaster Mapping using Twitter'
 
 app.layout = html.Div([
 	html.Link(
@@ -69,7 +69,7 @@ app.layout = html.Div([
 			html.P(id='date-value', className="dateValue",style={"color": "black"})],style={"display": "hidden"}),
 			html.Div([
 				html.Div([
-					html.H2("Savitr", style={'font-family': 'Dosis'}),
+					html.H2("Realise", style={'font-family': 'Dosis'}),
 					html.P("Disaster mapping using Twitter", className="explanationParagraph twelve columns"),
 				],style={"margin-bottom": "10px"}),
 
@@ -166,10 +166,10 @@ app.layout = html.Div([
 
 				html.Div([
 					html.Hr(),
-					html.P("Savitr - Disaster Mapping using Twitter", style={'text-align':'center'}),
+					html.P("Realise - Disaster Mapping using Twitter", style={'text-align':'center'}),
 					html.A('Scroll to top', href='/#'),
 					html.Div([
-						html.A('Source code and documentation', target='_blank', href='https://github.com/AvijitGhosh82/Savitr-Python'),
+						html.A('Source code and documentation', target='_blank', href='https://github.com/AvijitGhosh82/Realise-Python'),
 					], style={"float": "right"}),
 					html.Hr(),
                 ]),
@@ -436,8 +436,8 @@ def get_lat_lon_color(selectedData, value, slider_value):
 def update_graph(value, slider_value, selectedData, searchBarInput, prevLayout):
 	mapControls = None
 	zoom = 4.0
-	latInitial = 21.146633
-	lonInitial = 79.088860
+	latInitial = 38.232513
+	lonInitial = -100.173251
 	bearing = 0
 	listStr = get_lat_lon_color(selectedData, value, slider_value)
 	listsOfStr = eval(listStr)['t'].tolist()
@@ -555,8 +555,8 @@ def update_graph(value, slider_value, selectedData, searchBarInput, prevLayout):
 						dict(
 							args=[{
 									'mapbox.zoom': 4,
-									'mapbox.center.lon': '79.088860',
-									'mapbox.center.lat': '21.146633',
+									'mapbox.center.lon': '38.232513',
+									'mapbox.center.lat': '-100.173251',
 									'mapbox.bearing': 0,
 									'mapbox.style': 'light'
 								}],
