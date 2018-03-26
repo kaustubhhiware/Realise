@@ -55,7 +55,7 @@ for month in df.groupby(df.index.month):
 		dailyList.append(day[1])
 	totalList.append(dailyList)
 
-app.title = 'Realise - Disaster Mapping using Twitter'
+app.title = 'Realise - Healthcare analytics using Twitter'
 
 app.layout = html.Div([
 	html.Link(
@@ -70,7 +70,7 @@ app.layout = html.Div([
 			html.Div([
 				html.Div([
 					html.H2("Realise", style={'font-family': 'Dosis'}),
-					html.P("Disaster mapping using Twitter", className="explanationParagraph twelve columns"),
+					html.P("Healthcare analytics using Twitter", className="explanationParagraph twelve columns"),
 				],style={"margin-bottom": "10px"}),
 
 			html.Div([
@@ -94,10 +94,10 @@ app.layout = html.Div([
 				dcc.Dropdown(
 				id='my-dropdown',
 				options=[
-					{'label': 'Mar 2018', 'value': 'Mar'},
-					{'label': 'Oct 2017', 'value': 'Oct'}
+					{'label': 'Feb 2018', 'value': 'Feb'},
+					{'label': 'Mar 2018', 'value': 'Mar'}
 				],
-				value="Mar",
+				value="Feb",
 				placeholder="Please choose a month",
 				className="month-picker"
 
@@ -166,7 +166,7 @@ app.layout = html.Div([
 
 				html.Div([
 					html.Hr(),
-					html.P("Realise - Disaster Mapping using Twitter", style={'text-align':'center'}),
+					html.P("Realise - Healthcare analytics using Twitter", style={'text-align':'center'}),
 					html.A('Scroll to top', href='/#'),
 					html.Div([
 						html.A('Source code and documentation', target='_blank', href='https://github.com/AvijitGhosh82/Realise-Python'),
@@ -182,15 +182,15 @@ app.layout = html.Div([
 
 def getValue(value):
 	val = {
-		'Mar': 30,
-		'Oct': 13
+		'Feb': 28,
+		'Mar': 31
 	}[value]
 	return val
 
 def getValue_start(value):
 	val = {
-		'Mar': 12,
-		'Oct': 1
+		'Feb': 12,
+		'Mar': 1
 	}[value]
 	return val
 
@@ -199,8 +199,8 @@ def getIndex(value):
 	if(value==None):
 		return 0
 	val = {
-		'Mar': 0,
-		'Oct': 1
+		'Feb': 0,
+		'Mar': 1
 	}[value]
 	return val
 
